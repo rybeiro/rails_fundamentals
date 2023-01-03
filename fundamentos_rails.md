@@ -88,3 +88,16 @@ rails g controller welcome index
 # Para remover um controller
 rails g controller name_class 
 ```
+
+## Helpers
+_Helpers_ são métodos prontos que são usados nas _views_
+
+```ruby
+# link_to
+<%= link_to "Cadastroc de Moedas", coins_path %>
+```
+
+```ruby
+<%= image_tag coin.url_image, size: "25x25" %>
+
+```
