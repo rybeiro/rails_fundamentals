@@ -92,12 +92,71 @@ rails g controller name_class
 ## Helpers
 _Helpers_ são métodos prontos que são usados nas _views_
 
+Os _helpers_ estão disponíveis no diretório _app/helpers_ e no arquivo application_helpers.rb todo conteúdo fica disponível para todas as view do app. Mas você também pode criar seus próprios helper dentro desse diretório. E para organização criar com o nome da view.
+
+
 ```ruby
 # link_to
-<%= link_to "Cadastroc de Moedas", coins_path %>
+<%= link_to "Cadastro de Moedas", coins_path %>
 ```
 
 ```ruby
 <%= image_tag coin.url_image, size: "25x25" %>
 
+```
+
+## Seed
+É possível popular a tabela criando os dados através de _seed_
+```ruby
+# bd/seed.rb
+# contém instruções para criar as seeds
+```
+
+## Cookies
+Cookies são armazenados no navegador
+```ruby
+# criando um cookies
+cookies[:nome]
+``` 
+
+## Session
+Session são armazenadas no servidor
+```ruby
+# criando a session
+session[:nome]
+```
+
+## Map
+```ruby
+[1,2,3,4,5].map do |i|
+	i*3
+end
+
+[1,2,3,4,5].map{|i| i*5}
+
+c = Contact.all
+c.map(&:first_name)
+
+# gerando um novo array
+c.map{|i| [i.first_name, i.cpf]}
+```
+
+## Pluck
+c.pluck(:first_name, :cpf)
+
+# Primeiro app
+## Agenda de contatos
+Vou criar uma api de agenda de contatos
+```ruby
+# criando o app
+rails new app_contacts --api --databases=mysql
+
+# depois acesse o arquivo config/database.yml
+# configure o usuário e senha do banco de dados
+
+# Criar o banco de dados
+rails db:create
+
+# Subir o servidor puma
+rails server
 ```
